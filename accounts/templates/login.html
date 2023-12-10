@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form-div {
+             display: flex;
+             justify-content: center;
+        }
+
+        .form-div form {
+            width: '25%'
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 0%;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-div">
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ login_form.username.errors }}
+            <label>Usuário: </label>
+            {{ login_form.username }}
+        </div>
+    
+        <div class="form-group">
+            {{ login_form.password.errors }}
+            <label>Senha: </label>
+            {{ login_form.password }}
+        </div>
+
+    
+
+        <input class="button" type="submit" value="Entrar">
+    </form>
+    </div>
+
+   
+        
+
+</body>
+</html>
+{% endblock %}
