@@ -1,9 +1,7 @@
-
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from django.http import HttpResponse
 from cars.views import *
 from accounts.views import register_view, login_view, logout_view
 

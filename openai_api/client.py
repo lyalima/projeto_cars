@@ -1,5 +1,4 @@
 import openai
-from openai import OpenAI
 import os
 
 
@@ -13,7 +12,7 @@ def get_car_ai_bio(model_car, brand, model_year):
                 {
                     "role": "user",
                     "content": '''Faça uma descrição de até 250 caracteres com especificações técnicas sobre o carro {} {} {}.
-                                A descrição deve ser feita para ajudar o carro a ser vendido..format(model, brand, year)'''.format(brand, model_car, model_year),
+                                A descrição deve ser feita para ajudar o carro a ser vendido.'''.format(brand, model_car, model_year),
                 },
             ],
         )

@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
             
-#class-based view para listar os carros; herda de ListView.
+
 class CarsListView(ListView):
     model = Car
     template_name = 'cars.html'
@@ -19,22 +19,20 @@ class CarsListView(ListView):
         return cars
         
 
-#decorator de atualização da view; a view só poder ser acessada se o user estiver logado
 @method_decorator(login_required(login_url='login_view'), name='dispatch')
-#class-based view para criar um novo carro; herda de CreateView.
 class NewCarCreateView(CreateView):
     model = Car
     form_class = CarModelForm
     template_name = 'new_car.html'
     success_url = '/cars/'
 
-#class-based view para visualizar detalhes de um carro; herda de DetailView.
+
 class CarDetailView(DetailView):
     model = Car
     template_name = 'car_detail.html'
 
+
 @method_decorator(login_required(login_url='login_view'), name='dispatch')
-#class-based view para atualizar um carro existente; herda de UpdateView.
 class CarUpdateView(UpdateView):
     model = Car
     form_class = CarModelForm
@@ -43,8 +41,8 @@ class CarUpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('car_detail', kwargs={'pk': self.object.pk})
 
+
 @method_decorator(login_required(login_url='login_view'), name='dispatch')
-#class-based view para deletar um carro; herda de DeleteView.
 class CarDeleteView(DeleteView):
     model = Car
     template_name = 'car_delete.html'
