@@ -2,7 +2,7 @@ from django.db.models.signals import pre_save, post_save, post_delete
 from django.db.models import Sum
 from django.dispatch import receiver
 from cars.models import Car, CarInventory
-from openai_api.client import get_car_ai_bio
+from gemini_api.client import get_car_ai_bio
 
 #função para calcular o inventário de carros sempre que um carro for adicionado ou excluído
 def car_inventory_update():
@@ -10,6 +10,7 @@ def car_inventory_update():
     cars_value = Car.objects.aggregate(
         total_value = Sum('value')
     )['total_value']
+    
     CarInventory.objects.create(
         cars_count = cars_count,
         cars_value = cars_value

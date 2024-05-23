@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
-
         .form-div {
              display: flex;
              justify-content: center;
@@ -24,14 +24,10 @@
     <div class="form-div">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-    
             <table>
-                {{ form.as_table }}
+                {{ form|crispy }}
             </table>
-    
             <div class="d-grid"><button class="btn btn-primary my-4" id="submitButton" type="submit"> Cadastrar </button></div>
-
-    
         </form>
     </div>  
 </body>

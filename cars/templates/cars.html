@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
   <title>Cars</title>
   <style>
@@ -102,12 +101,28 @@
     a:hover {
       color: #0096c7;
     }
+
+    ul.messages {
+      padding: 0;
+    }
+
+    ul.messages li {
+      list-style: none;
+    }
   </style>
 
   <form method="GET" action="{% url 'cars_view' %}">
     <input type="text" name="search" placeholder="Buscar carro...">
     <button type="submit">Buscar</button>
   </form>
+
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li {% if message.tags %}class="alert {{ message.tags }}" {% endif %}> {{ message }}</li> 
+      {% endfor %}
+    </ul>
+  {% endif %}
 
   <div class="car-grid">
     {% if cars %}
