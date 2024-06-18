@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from django.contrib.messages import constants
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'carros',
         'USER': 'postgres',
-        'PASSWORD': os.environ.get('PASSWD_POSTGRESQL'),
+        'PASSWORD': config('PASSWD_POSTGRESQL'),
         'HOST': 'localhost',
         'PORT': '5432',
     }

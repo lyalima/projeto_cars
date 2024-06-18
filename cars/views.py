@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib import messages
-from django.shortcuts import redirect
             
 
 class CarsListView(ListView):
@@ -30,7 +29,7 @@ class NewCarCreateView(CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        messages.success(self.request, 'Carro criado com sucesso!')
+        messages.success(self.request, 'Carro cadastrado com sucesso!')
         return response
 
 
@@ -61,6 +60,6 @@ class CarDeleteView(DeleteView):
     success_url = '/cars/'
 
     def form_valid(self, form):
-        messages.success(self.request, 'Carro deletado com sucesso!')
+        messages.success(self.request, 'Carro excluído com sucesso!')
         return super().form_valid(form)
 
