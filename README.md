@@ -5,4 +5,4 @@ O sistema disponibiliza funcionalidades para cadastro, edição, visualização 
 
 Para instalar as dependências necessárias para usar o projeto, execute: pip install -r./requirements.txt.
 
-OBS: Atentar-se à configuração da api key do Google Gemini e à configuração das credenciais do banco de dados utlizado.
+OBS: Atentar-se à configuração da api key do Google Gemini e à configuração das credenciais do banco de dados utilizado.
