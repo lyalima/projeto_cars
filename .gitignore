@@ -3,6 +3,3 @@ venv/
 media/
 carros_uwsgi.ini
 uwsgi_params
-
-
-
