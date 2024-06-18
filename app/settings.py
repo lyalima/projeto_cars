@@ -72,8 +72,6 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#passwd_postgres = os.environ.get("PASSWD_POSTGRES")
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
